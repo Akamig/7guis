@@ -1,7 +1,7 @@
 {
-  "name": "7guis-5568",
-  "private": true,
-  "description": "",
+  "name": "7guis",
+  "private": false,
+  "description": "7guis implementation test",
   "license": "",
   "sideEffects": false,
   "scripts": {
