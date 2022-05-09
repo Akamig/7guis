@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgray;
+  height: 100vmax;
+  border-radius: 2rem;
+}
+
+.component {
+  display: flex;
+  margin: 1rem;
+}
+
+#counter {
+  display: flex;
+  width: 8rem;
+  height: 3rem;
+}
+
+#counter-number {
+  text-align: center;
+  background-color: white;
+  margin: auto;
+  width: 50%;
+}
+
+#counter-button {
+  width: 50%;
+}
+
+#flight-booker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#timer {
+    flex-direction: column;
+}

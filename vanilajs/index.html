@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="counter" class="component">
+        <div id="counter-number">0</div>
+        <button id="counter-button">Count</button>
+      </div>
+      <div id="temp-converter" class="component">
+        Celcius
+        <input type="number" id="celcius" value="" />
+        <input type="number" id="farenheit" value="" />
+        Farenheit
+      </div>
+      <div id="flight-booker" class="component">
+        <div>
+          <input type="date" id="go" />
+          <input type="date" id="back" />
+        </div>
+        <select id="flight-type">
+          <option value="go">one-way</option>
+          <option value="goback">return flight</option>
+        </select>
+        <button id="flight-book">Book a Flight</button>
+      </div>
+      <div id="timer" class="component">
+        Elapsed Time:
+        <meter id="time-view" min="0" max="30000" value="0"></meter>
+        Duration: <span id="time-span"></span>
+        <input type="range" id="time-range" min="0" max="30000" step="100"/>
+        <button id="time-set">Set Time</button>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
