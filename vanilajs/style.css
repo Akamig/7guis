@@ -38,3 +38,7 @@
 #timer {
     flex-direction: column;
 }
+
+#crud{
+  flex-direction: column;
+}

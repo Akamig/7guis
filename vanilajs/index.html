@@ -34,8 +34,23 @@
         Elapsed Time:
         <meter id="time-view" min="0" max="30000" value="0"></meter>
         Duration: <span id="time-span"></span>
-        <input type="range" id="time-range" min="0" max="30000" step="100"/>
+        <input type="range" id="time-range" min="0" max="30000" step="100" />
         <button id="time-set">Set Time</button>
+      </div>
+
+      <div id="crud" class="component">
+        Filter<input type="text" id="crud-filter" /> 
+        Name<input type="text" id="crud-name" />
+        Surname<input type="text" id="crud-surname" />
+        <div>
+          <select id="crud-list" size="3">
+            <option>Tom, Cruise</option>
+            <option>Jill, Stingray</option>
+          </select>
+          <button id="crud-create">Create</button>
+          <button id="crud-update">Update</button>
+          <button id="crud-delete">Delete</button>
+        </div>
       </div>
     </div>
   </body>

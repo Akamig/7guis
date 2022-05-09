@@ -9,6 +9,13 @@ let timeView = document.getElementById("time-view");
 let timeRange = document.getElementById("time-range");
 let timeSpan = document.getElementById("time-span");
 let timeSet = document.getElementById("time-set");
+let crudList = document.getElementById("crud-list");
+let crudFilter = document.getElementById("crud-filter");
+let crudName = document.getElementById("crud-name");
+let crudSurname = document.getElementById("crud-surname");
+let crudCreate = document.getElementById("crud-create");
+let crudUpdate = document.getElementById("crud-update");
+let crudDelete = document.getElementById("crud-delete");
 
 back.disabled = true;
 
@@ -25,6 +32,11 @@ flightBook.onclick = bookFlight;
 timeSet.onclick = resetTime;
 timeRange.oninput = setTime;
 timeView.onchange = displayTime;
+
+crudCreate.onclick = create;
+crudUpdate.onclick = update;
+crudDelete.onclick = remove;
+crudFilter.oninput = filter;
 
 function count() {
   let n = document.getElementById("counter-number");
@@ -73,22 +85,69 @@ function resetTime() {
   time = Date.now();
 }
 
-function progressTime(){
+function progressTime() {
   let diff = Date.now() - time;
-  timeView.value = diff
-  if(timeView.value < timeView.max){
+  timeView.value = diff;
+  if (timeView.value < timeView.max) {
     displayTime(diff);
   }
 }
 
-function setTime(){
+function setTime() {
   timeView.max = clamp(timeRange.value, timeView.value, 30000);
 }
 
-function displayTime(time){
+function displayTime(time) {
   timeSpan.textContent = time / 1000 + "s";
 }
 
 function clamp(num, min, max) {
   return num <= min ? min : num >= max ? max : num;
 }
+
+function filterInput(name, surname) {
+  if (name !== "" && surname !== "") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function newEntry() {
+  if (filterInput(crudName.value, crudSurname.value)) {
+    let newEntry = document.createElement("option");
+    newEntry.text = crudName.value + ", " + crudSurname.value;
+    return newEntry;
+  }
+}
+
+function create() {
+  crudList.add(newEntry());
+}
+
+function update() {
+  let selectedEntry = crudList.selectedOptions;
+  selectedEntry[0].innerHTML = newEntry().innerHTML;
+}
+
+function remove() {
+  crudList.remove(crudList.selectedIndex);
+}
+
+function filter() {
+  let a = crudList.options;
+  if (crudFilter.value === "") {
+    for (let i = 0; i < a.length; i++) {
+      a[i].hidden = false;
+    }
+  } else {
+    for (let i = 0; i < a.length; i++) {
+      if (a[i].textContent.includes(crudFilter.value)) {
+        a[i].hidden = false;
+      } else {
+        a[i].hidden = true;
+      }
+    }
+  }
+}
+
